@@ -202,23 +202,23 @@ function MetasploitInstall() {
 	if [ $? -gt 0 ] ; then
 		printErr "Failed to chmod /etc/profile"
 		exit -1
-        else
-                printMsg "Done!"
-        fi
+	else
+		printMsg "Done!"
+	fi
 	sh -c "echo export MSF_DATABASE_CONFIG=/usr/local/share/metasploit-framework/database.yml >> /etc/profile"
 	if [ $? -gt 0 ] ; then
-                printErr "Failed to export msf database config"
-                exit -1
-        else
-                printMsg "Done!"
-        fi
+		printErr "Failed to export msf database config"
+		exit -1
+	else
+		printMsg "Done!"
+	fi
 	sh -c "bundle install"
 	if [ $? -gt 0 ] ; then
-                printErr "Failed to bundle install"
-                exit -1
-        else
-                printMsg "Done!"
-        fi
+		printErr "Failed to bundle install"
+		exit -1
+	else
+		printMsg "Done!"
+	fi
 }
 
 echo -e "\t\t ------------------------------------------"
