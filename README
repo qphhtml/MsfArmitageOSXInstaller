@@ -1,2 +1,12 @@
-Made a start... just need to add error-checking and then finish the script.
-The commands have worked with 10.9.1 OSX
+This script is designed to assist in the install of metasploit/armitage on Mac OSX 10.9.1.
+
+Added:
+- Basic error-checking.
+- Commands upto installing metasploit from github.
+
+TODO
+- Finish off the commands.
+- Implement error-checking and logging for the above.
+- Specifically check if programs are already installed instead of assuming not.
+
+If you think I've missed anything or want a feature implemented then hit me up here or on twitter (@Sh3llc0d3)
