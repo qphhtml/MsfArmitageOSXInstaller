@@ -3,14 +3,17 @@ LOG="/tmp/MsfArmitageInstall.log"
 
 function printMsg() {
 	echo -e "[+] $1"
+	echo "[+] $1" >> $LOG 2>&1
 }
 
 function printErr() {
 	echo -e "[!] $1"
+	echo "[!] Error: $1" >> $LOG 2>&1
 }
 
 function printQuest() {
 	echo -e "[?] $1"
+	echo "[?] $1" >> $LOG 2>&1
 }
 
 function PostgreSQLInstalled() {
