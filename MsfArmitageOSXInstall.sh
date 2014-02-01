@@ -2,6 +2,7 @@
 LOG="/tmp/MsfArmitageInstall.log"
 
 function printTitle() {
+	echo -e "\t\t$1"
 	echo -e "\t\t$1" >> $LOG 2>&1
 }
 
@@ -228,6 +229,8 @@ function MetasploitInstall() {
 	fi
 }
 
+
+############# [ MAIN ] #############
 printTitle " ------------------------------------------"
 printTitle "| Msf/Armitage Installer for OSX 10.9.1    |"
 printTitle "| Based on the blog post by @lightbulbone  |"
@@ -236,6 +239,7 @@ printTitle " ------------------------------------------"
 
 printMsg "Begin? [y/n]"
 read ans
+echo "BEGIN LOG" >> $LOG 2>&1
 if [ "$ans" = 'y' ]; then
 	XcodeInstalled
 	PostgreSQLInstalled
@@ -243,7 +247,10 @@ if [ "$ans" = 'y' ]; then
 	DowngradingRuby
 	NmapInstall
 	MetasploitInstall
+
+	echo "END LOG" >> $LOG 2>&1
 else
 	printErr "You selected to not continue!"
+	echo "END LOG" >> $LOG 2>&1
 	exit -1
 fi
