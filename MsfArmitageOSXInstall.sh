@@ -1,6 +1,10 @@
 #!/bin/bash
 LOG="/tmp/MsfArmitageInstall.log"
 
+function printTitle() {
+	echo -e "\t\t$1" >> $LOG 2>&1
+}
+
 function printMsg() {
 	echo -e "[+] $1"
 	echo "[+] $1" >> $LOG 2>&1
@@ -224,13 +228,13 @@ function MetasploitInstall() {
 	fi
 }
 
-echo -e "\t\t ------------------------------------------"
-echo -e "\t\t| Msf/Armitage Installer for OSX 10.9.1    |"
-echo -e "\t\t| Based on the blog post by @lightbulbone  |"
-echo -e "\t\t| Coded by @Sh3llc0d3                      |"
-echo -e "\t\t ------------------------------------------"
+printTitle " ------------------------------------------"
+printTitle "| Msf/Armitage Installer for OSX 10.9.1    |"
+printTitle "| Based on the blog post by @lightbulbone  |"
+printTitle "| Coded by @Sh3llc0d3                      |"
+printTitle " ------------------------------------------"
 
-echo -e "\n\n[+] Begin? [y/n]"
+printMsg "Begin? [y/n]"
 read ans
 if [ "$ans" = 'y' ]; then
 	XcodeInstalled
@@ -240,5 +244,6 @@ if [ "$ans" = 'y' ]; then
 	NmapInstall
 	MetasploitInstall
 else
+	printErr "You selected to not continue!"
 	exit -1
 fi
