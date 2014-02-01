@@ -94,9 +94,16 @@ echo -e "\t\t| Msf/Armitage Installer for OSX 10.9.1    |"
 echo -e "\t\t| Based on the blog post by @lightbulbone  |"
 echo -e "\t\t| Coded by @Sh3llc0d3                      |"
 echo -e "\t\t ------------------------------------------"
-XcodeInstalled
-PostgreSQLInstalled
-MacPortsInstall
-DowngradingRuby
-NmapInstall
-MetasploitInstall
+
+echo -e "\n\n[+] Begin? [y/n]"
+read ans
+if [ "$ans" = 'y' ]; then
+	XcodeInstalled
+	PostgreSQLInstalled
+	MacPortsInstall
+	DowngradingRuby
+	NmapInstall
+	MetasploitInstall
+else
+	exit -1
+fi
